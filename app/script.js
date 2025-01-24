@@ -3,7 +3,7 @@ function celebrate() {
     const confetti = document.getElementById('confetti');
 
     // Display congratulatory message
-    message.textContent = 'Congratulations!, You have now completed a DevOps Task created by Akhilesh Gopal';
+    message.textContent = 'Congratulations Abhilash Gopal!';
     
     // Show confetti animation
     confetti.classList.remove('hidden');
