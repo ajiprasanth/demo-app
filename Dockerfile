@@ -1,5 +1,5 @@
 # Use the official Ubuntu base image
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 # Install NGINX
 RUN apt-get update -y && \
