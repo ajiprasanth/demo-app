@@ -3,7 +3,7 @@ function celebrate() {
     const confetti = document.getElementById('confetti');
 
     // Display congratulatory message
-    message.textContent = 'Congratulations Abhilash Gopal!';
+    message.textContent = 'Congratulations!';
     
     // Show confetti animation
     confetti.classList.remove('hidden');
@@ -15,3 +15,4 @@ function celebrate() {
         confetti.innerHTML = '';
     }, 3000);
 }
+
