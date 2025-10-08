@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("${ECR_REPO}:${IMAGE_TAG}")
+                    sudo docker.build("${ECR_REPO}:${IMAGE_TAG}")
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 script {
-                    sh "docker push ${ECR_REPO}:${IMAGE_TAG}"
+                    sh " sudo docker push ${ECR_REPO}:${IMAGE_TAG}"
                 }
             }
         }
