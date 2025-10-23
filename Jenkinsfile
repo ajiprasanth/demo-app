@@ -41,17 +41,6 @@ pipeline {
             }
         }
 
-        stage('Deploy to EKS') {
-            steps {
-                script {
-                    sh '''
-                    aws eks update-kubeconfig --name my-eks-cluster --region $AWS_REGION
-                    sed -i "s|<ECR_REPO_URI>|$ECR_REPO|g" deployment.yaml
-                    kubectl apply -f deployment.yaml
-                    '''
-                }
-            }
-        }
     }
 
     post {
