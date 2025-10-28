@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        AWS_REGION = "ap-south-1"
-        ECR_REPO = "457271242919.dkr.ecr.ap-south-1.amazonaws.com/my-repo"
+        AWS_REGION = "eu-north-1"
+        ECR_REPO = "457271242919.dkr.ecr.eu-north-1.amazonaws.com/aji-repo"
         IMAGE_TAG = "latest"
     }
 
@@ -41,6 +41,16 @@ pipeline {
             }
         }
 
+        stage('Deploy to EKS') {
+            steps {
+                script {
+                    sh '''
+                    aws eks update-kubeconfig --name ekstest --region $AWS_REGION
+                    kubectl apply -f Deployment.yaml
+                    '''
+                }
+            }
+        }
     }
 
     post {
